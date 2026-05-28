@@ -29,8 +29,8 @@ int main(int argc, char *argv[]){
         if (i == 1){
             password = argv[i];
         }
-        for (int j = 0; argv[i][j] != '\0'; j++){
-            if (i == 2){
+        else if (i == 2){
+            for (int j = 0; argv[i][j] != '\0'; j++){
             if (argv[i][j] < '0' || argv[i][j] > '9'){
                 printf("ERROR: please provide a number\n");
                 return 1;
