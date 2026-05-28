@@ -4,10 +4,13 @@
 
 void encrypt(char *password, int key){
 
+    // reduce key to fit within the 26-letter alphabet limit
     key = key % 26;
 
     for (int i = 0; password[i] != '\0'; i++){
+        // perform the Caesar Cipher
         if (isupper(password[i])){
+            // map ASCII to a 0-25 index, apply the shift, wrap around, and restore ASCII
             password[i] = ((password[i] - 'A') + key) % 26 + 'A';
         } else if (islower(password[i])){
             password[i] = ((password[i] - 'a') + key) % 26 + 'a';
@@ -37,6 +40,7 @@ int main(int argc, char *argv[]){
                 }
             }
 
+            // convert the validated string into an integer
             key = atoi(argv[i]);
 
             }
