@@ -19,22 +19,26 @@ void encrypt(char *password, int key){
 int main(int argc, char *argv[]){
     if (argc != 3){
         printf("ERROR: please provide the following after the program name: [password] [key]\n");
+        return 1;
     }
 
     char *password = NULL;
     int key = 0;
 
     for (int i = 1; i < argc; i++){
-        if (i == 1)
+        if (i == 1){
             password = argv[i];
+        }
         for (int j = 0; argv[i][j] != '\0'; j++){
             if (i == 2){
             if (argv[i][j] < '0' || argv[i][j] > '9'){
                 printf("ERROR: please provide a number\n");
                 return 1;
                 }
-                key = atoi(argv[i]);
             }
+
+            key = atoi(argv[i]);
+
             }
         }
     if (password != NULL){
